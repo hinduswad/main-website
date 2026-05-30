@@ -33,7 +33,7 @@ export default function Navbar({ session }: NavbarProps) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
           <Image
-            src="/images/WhatsApp Image 2026-05-29 at 14.04.08.jpeg"
+            src="/images/logo.jpeg"
             alt="HinduSwad Logo"
             width={40}
             height={40}
