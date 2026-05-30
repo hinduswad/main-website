@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍛 HinduSwad Careers (Currier)
 
-## Getting Started
+Welcome to **HinduSwad Careers**, a modern, premium, high-performance job application and candidate recruitment portal. This system is designed to streamline job discovery, candidate onboarding, multi-step career applications, secure transaction handling, and internal recruitment operations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Key Features
+
+*   **Job Discovery Directory:** A dynamic interface displaying open job postings (Field Officers, Sales Executives, Telecallers) with full details, compensation brackets, responsibilities, and district preferences.
+*   **Multi-Step Application Wizard:**
+    *   **Personal Information:** Profile photo and Aadhaar card document uploads.
+    *   **Professional Details:** Resume upload, qualifications, work experience, relocatability, supervisor experience, leadership comfort, and district preferences.
+    *   **Review Summary:** An interactive, single-pane review summary of all candidate inputs before finalizing.
+    *   **Secure Fee Payment:** Complete Razorpay integration for candidate application fee processing.
+*   **Real-time Candidate Dashboard:** Candidates can monitor their application status, exam schedules, interview details, and download uploaded verification documents.
+*   **Robust Administration (Seeded):** Database contains a high-level admin role to oversee document verification, exam scoring, and final candidate approvals.
+
+---
+
+## 🛠️ Technology Stack
+
+*   **Framework:** Next.js 15 (App Router) + React 19
+*   **Database & ORM:** PostgreSQL + Prisma ORM
+*   **Authentication:** NextAuth.js v5 (Beta) with Credentials Provider
+*   **Payments:** Razorpay Gateway Integration
+*   **File Storage:** Supabase Storage (Secure bucket uploads for resumes, photo identity, and official documents)
+*   **Email:** Resend API integration for automated transactional mail
+*   **SMS:** msg91 Gateway integration for mobile updates
+*   **Styling:** Tailwind CSS + Shadcn UI components
+
+---
+
+## 📋 Environment Configuration
+
+Create a `.env.local` file in the root directory and specify the following variables:
+
+```env
+# Database Credentials
+DATABASE_URL="postgresql://user:password@host:port/dbname?pgbouncer=true"
+DIRECT_URL="postgresql://user:password@host:port/dbname"
+
+# NextAuth Authentication
+NEXTAUTH_URL="http://localhost:3003"
+NEXTAUTH_SECRET="your_nextauth_jwt_secret"
+
+# Razorpay Keys
+RAZORPAY_KEY_ID="rzp_test_xxxxxx"
+RAZORPAY_KEY_SECRET="your_razorpay_secret"
+
+# Supabase Storage
+NEXT_PUBLIC_SUPABASE_URL="https://your-supabase-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="your-publishable-key"
+SUPABASE_URL="https://your-supabase-project.supabase.co"
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
+
+# Email Integration (Resend)
+RESEND_API_KEY="re_xxxxxx"
+RESEND_FROM_EMAIL="noreply@yourdomain.in"
+
+# SMS Integration (msg91)
+MSG91_AUTH_KEY="your_msg91_auth_key"
+MSG91_SENDER_ID="FOODDL"
+
+# App URL Configuration
+APP_URL="http://localhost:3003"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Local Setup and Execution
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Follow these steps to run the application on your local machine:
 
-## Learn More
+### 1. Install Dependencies
+Make sure you are using `pnpm` (configured for workspace support):
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Generate Prisma Client
+Compile the database schema into the local client binaries:
+```bash
+pnpm prisma generate
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Run Database Migrations (Optional)
+If setting up a fresh database, apply the migrations:
+```bash
+pnpm prisma db push
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Seed the Database
+Seed the job listings and initial mock details:
+```bash
+pnpm prisma db seed
+```
 
-## Deploy on Vercel
+Then, seed the default Admin credentials in the database:
+```bash
+node --env-file=.env.local ./node_modules/tsx/dist/cli.mjs seed-admin.ts
+```
+*   **Admin Phone:** `9999999999`
+*   **Admin Password:** `adminpassword`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Launch the Development Server
+```bash
+pnpm dev
+```
+Open **[http://localhost:3003](http://localhost:3003)** to explore the candidate portal!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ☁️ Deployment Guidelines (pnpm v10+ Compatibility)
+
+Since `pnpm` version 10+ blocks native script builds by default for security, the workspace configuration `pnpm-workspace.yaml` explicitly whitelists native packages required for compiling and deploying this Next.js app:
+
+```yaml
+onlyBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - esbuild
+  - prisma
+  - sharp
+  - unrs-resolver
+```
+
+This guarantees flawless postinstall execution and builds on deployment platforms like **Hostinger**, Vercel, or standalone AWS environments.
