@@ -99,8 +99,8 @@ Then, seed the default Admin credentials in the database:
 ```bash
 node --env-file=.env.local ./node_modules/tsx/dist/cli.mjs seed-admin.ts
 ```
-*   **Admin Phone:** `9999999999`
-*   **Admin Password:** `adminpassword`
+*   **Admin Phone:**
+*   **Admin Password:**
 
 ### 5. Launch the Development Server
 ```bash
