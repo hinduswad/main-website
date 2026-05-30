@@ -20,6 +20,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "HinduSwad - Premium Food Delivery Job Recruitment Portal",
   description: "Join India's leading food delivery and logistics operations network. Immediate hiring for Field Officers, Sales Executives, and TeleCallers.",
+  icons: {
+    icon: "/images/web-icon-32x32.png",
+    apple: "/images/ios-icon-180x180.png",
+  },
 };
 
 export default async function RootLayout({

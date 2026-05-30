@@ -24,7 +24,7 @@ export default function Navbar({ session }: NavbarProps) {
     { name: "Contact", href: "/contact" },
   ];
 
-  const links = session
+  const links = session?.user
     ? [...baseLinks, { name: "Dashboard", href: "/dashboard" }]
     : baseLinks;
 
@@ -64,7 +64,7 @@ export default function Navbar({ session }: NavbarProps) {
 
         {/* Action Button */}
         <div className="hidden md:flex md:items-center gap-4">
-          {session ? (
+          {session?.user ? (
             <>
               <span className="text-xs text-zinc-500 font-medium">
                 +91 {session?.user?.phone}
@@ -120,7 +120,7 @@ export default function Navbar({ session }: NavbarProps) {
               </Link>
             ))}
             <hr className="border-zinc-200" />
-            {session ? (
+            {session?.user ? (
               <div className="flex flex-col gap-2">
                 <span className="text-xs text-zinc-500 font-medium px-1">
                   Logged in: +91 {session?.user?.phone}
