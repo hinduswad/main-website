@@ -67,7 +67,7 @@ export default function Navbar({ session }: NavbarProps) {
           {session ? (
             <>
               <span className="text-xs text-zinc-500 font-medium">
-                +91 {session.user.phone}
+                +91 {session?.user?.phone}
               </span>
               <Button
                 onClick={() => signOut({ callbackUrl: "/" })}
@@ -123,7 +123,7 @@ export default function Navbar({ session }: NavbarProps) {
             {session ? (
               <div className="flex flex-col gap-2">
                 <span className="text-xs text-zinc-500 font-medium px-1">
-                  Logged in: +91 {session.user.phone}
+                  Logged in: +91 {session?.user?.phone}
                 </span>
                 <Button
                   onClick={() => {
