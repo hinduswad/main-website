@@ -1,7 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.SUPABASE_URL || "";
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+const envSupabaseUrl = process.env.SUPABASE_URL;
+const supabaseUrl = !envSupabaseUrl || envSupabaseUrl.includes("placeholder")
+  ? (process.env.NEXT_PUBLIC_SUPABASE_URL || "")
+  : envSupabaseUrl;
+
+const envServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseServiceKey = !envServiceKey || envServiceKey.includes("placeholder")
+  ? (process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "")
+  : envServiceKey;
 
 export const supabase = createClient(supabaseUrl, supabaseServiceKey);
 

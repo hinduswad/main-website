@@ -2,18 +2,33 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { submitContactInquiry } from "@/actions/contact-actions";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    const result = await submitContactInquiry({ name, phone, email, message });
     setIsSubmitting(false);
-    setFormSubmitted(true);
+
+    if (result.success) {
+      setFormSubmitted(true);
+    } else {
+      setError(result.error || "Failed to submit inquiry.");
+    }
   };
 
   const offices = [
@@ -140,6 +155,13 @@ export default function ContactPage() {
                       className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-orange-500/30 resize-none"
                     ></textarea>
                   </div>
+
+                  {error && (
+                    <div className="bg-red-50 text-red-600 text-xs px-4 py-3 rounded-2xl flex items-center gap-2 border border-red-100 animate-fade-in">
+                      <AlertCircle size={16} />
+                      <span>{error}</span>
+                    </div>
+                  )}
 
                   <Button type="submit" disabled={isSubmitting} className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6 py-6 text-sm font-semibold flex items-center gap-2">
                     {isSubmitting ? "Sending..." : <><Send size={14} /> Send Ticket</>}

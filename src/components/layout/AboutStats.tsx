@@ -40,7 +40,7 @@ function AnimatedValue({
 
   const displayValue = trigger 
     ? (isDecimal ? count.toFixed(1) : Math.floor(count).toLocaleString()) 
-    : (isDecimal ? target.toFixed(1) : target.toLocaleString());
+    : (isDecimal ? "0.0" : "0");
 
   return (
     <span>
@@ -85,7 +85,7 @@ export default function AboutStats() {
               <AnimatedValue target={5000} suffix="+" trigger={hasTriggered} />
             </span>
             <div className="h-[1px] w-8 bg-zinc-200 transition-all duration-300 group-hover:w-full group-hover:bg-orange-500" />
-            <span className="block text-xs font-bold text-zinc-450 uppercase tracking-wider">Active partners</span>
+            <span className="block text-xs font-bold text-zinc-500 uppercase tracking-wider">Active partners</span>
           </div>
 
           <div className="space-y-3 group" style={{ transitionDelay: "100ms" }}>
@@ -93,7 +93,7 @@ export default function AboutStats() {
               <AnimatedValue target={15} suffix="+" trigger={hasTriggered} />
             </span>
             <div className="h-[1px] w-8 bg-zinc-200 transition-all duration-300 group-hover:w-full group-hover:bg-orange-500" />
-            <span className="block text-xs font-bold text-zinc-450 uppercase tracking-wider">Cities covered</span>
+            <span className="block text-xs font-bold text-zinc-500 uppercase tracking-wider">Cities covered</span>
           </div>
 
           <div className="space-y-3 group" style={{ transitionDelay: "200ms" }}>
@@ -101,7 +101,7 @@ export default function AboutStats() {
               <AnimatedValue target={3.5} suffix="M+" trigger={hasTriggered} isDecimal={true} />
             </span>
             <div className="h-[1px] w-8 bg-zinc-200 transition-all duration-300 group-hover:w-full group-hover:bg-orange-500" />
-            <span className="block text-xs font-bold text-zinc-450 uppercase tracking-wider">Packages delivered</span>
+            <span className="block text-xs font-bold text-zinc-500 uppercase tracking-wider">Packages delivered</span>
           </div>
 
           <div className="space-y-3 group" style={{ transitionDelay: "300ms" }}>
@@ -109,7 +109,7 @@ export default function AboutStats() {
               <AnimatedValue target={98} suffix="%" trigger={hasTriggered} />
             </span>
             <div className="h-[1px] w-8 bg-zinc-200 transition-all duration-300 group-hover:w-full group-hover:bg-orange-500" />
-            <span className="block text-xs font-bold text-zinc-450 uppercase tracking-wider">Satisfaction rate</span>
+            <span className="block text-xs font-bold text-zinc-500 uppercase tracking-wider">Satisfaction rate</span>
           </div>
         </div>
       </div>

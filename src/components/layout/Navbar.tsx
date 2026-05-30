@@ -4,20 +4,29 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 
-export default function Navbar() {
+interface NavbarProps {
+  session?: any;
+}
+
+export default function Navbar({ session }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const links = [
+  const baseLinks = [
     { name: "Home", href: "/" },
     { name: "Jobs", href: "/jobs" },
     { name: "About Us", href: "/about" },
     { name: "FAQs", href: "/faqs" },
     { name: "Contact", href: "/contact" },
   ];
+
+  const links = session
+    ? [...baseLinks, { name: "Dashboard", href: "/dashboard" }]
+    : baseLinks;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
@@ -54,10 +63,36 @@ export default function Navbar() {
         </nav>
 
         {/* Action Button */}
-        <div className="hidden md:flex md:items-center">
-          <Button asChild className="bg-orange-500 text-white hover:bg-orange-600 rounded-full px-5 py-2 text-sm font-medium">
-            <Link href="/register">Apply Now</Link>
-          </Button>
+        <div className="hidden md:flex md:items-center gap-4">
+          {session ? (
+            <>
+              <span className="text-xs text-zinc-500 font-medium">
+                +91 {session.user.phone}
+              </span>
+              <Button
+                onClick={() => signOut({ callbackUrl: "/" })}
+                variant="outline"
+                className="rounded-full px-4 border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-medium text-xs flex items-center gap-1.5"
+              >
+                <LogOut size={12} /> Sign Out
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="text-xs font-semibold text-zinc-600 hover:text-orange-500 transition-colors"
+              >
+                Sign In
+              </Link>
+              <Button
+                asChild
+                className="bg-orange-500 text-white hover:bg-orange-600 rounded-full px-5 py-2 text-sm font-medium"
+              >
+                <Link href="/register">Apply Now</Link>
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile menu toggle */}
@@ -85,11 +120,41 @@ export default function Navbar() {
               </Link>
             ))}
             <hr className="border-zinc-200" />
-            <Button asChild className="bg-orange-500 text-white hover:bg-orange-600 w-full rounded-full">
-              <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
-                Apply Now
-              </Link>
-            </Button>
+            {session ? (
+              <div className="flex flex-col gap-2">
+                <span className="text-xs text-zinc-500 font-medium px-1">
+                  Logged in: +91 {session.user.phone}
+                </span>
+                <Button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    signOut({ callbackUrl: "/" });
+                  }}
+                  variant="outline"
+                  className="rounded-full w-full justify-center"
+                >
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-center text-sm font-semibold text-zinc-600 hover:text-orange-500 py-1"
+                >
+                  Sign In
+                </Link>
+                <Button
+                  asChild
+                  className="bg-orange-500 text-white hover:bg-orange-600 w-full rounded-full"
+                >
+                  <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
+                    Apply Now
+                  </Link>
+                </Button>
+              </div>
+            )}
           </nav>
         </div>
       )}

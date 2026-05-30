@@ -62,21 +62,24 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Field Officer */}
             <IntersectionReveal className="h-full flex" delay={0}>
-              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200 p-8 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-100 transition-all bg-white w-full">
-                <div>
-                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-widest block mb-6">Operations</span>
-                  <h3 className="text-2xl font-bold text-zinc-950">Field Officer</h3>
-                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed">
+              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200/80 p-8 hover:border-orange-500/20 hover:shadow-xl hover:shadow-orange-500/[0.02] transition-all duration-500 bg-gradient-to-b from-white to-zinc-50/40 w-full relative overflow-hidden">
+                {/* Micro-glow inside card on hover */}
+                <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-600 uppercase tracking-wider w-fit mb-6">Operations</span>
+                  <h3 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Field Officer</h3>
+                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed font-light">
                     Supervise local delivery riders, monitor route efficiency, handle merchant handovers, and ensure local service level agreements are met. Includes travel.
                   </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
+                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between relative z-10">
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-400">Est. Salary</span>
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Est. Salary</span>
                     <span className="text-sm font-bold text-zinc-900">₹20,000 - ₹40,000</span>
                   </div>
-                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 hover:text-orange-600">
-                    Apply <ArrowRight className="ml-1 h-4 w-4" />
+                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 group-hover:text-orange-600 transition-colors duration-300">
+                    Apply <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
               </div>
@@ -84,21 +87,24 @@ export default function HomePage() {
 
             {/* Sales Executive */}
             <IntersectionReveal className="h-full flex" delay={150}>
-              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200 p-8 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-100 transition-all bg-white w-full">
-                <div>
-                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-widest block mb-6">Expansion</span>
-                  <h3 className="text-2xl font-bold text-zinc-950">Sales Executive</h3>
-                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed">
+              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200/80 p-8 hover:border-orange-500/20 hover:shadow-xl hover:shadow-orange-500/[0.02] transition-all duration-500 bg-gradient-to-b from-white to-zinc-50/40 w-full relative overflow-hidden">
+                {/* Micro-glow inside card on hover */}
+                <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+
+                <div className="relative z-10">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-600 uppercase tracking-wider w-fit mb-6">Expansion</span>
+                  <h3 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Sales Executive</h3>
+                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed font-light">
                     Drive merchant acquisitions and рестораны/retail partnerships. Expand delivery networks and coordinate regional business volumes.
                   </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
+                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between relative z-10">
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-400">Est. Salary</span>
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Est. Salary</span>
                     <span className="text-sm font-bold text-zinc-900">₹23,000 - ₹50,000</span>
                   </div>
-                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 hover:text-orange-600">
-                    Apply <ArrowRight className="ml-1 h-4 w-4" />
+                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 group-hover:text-orange-600 transition-colors duration-300">
+                    Apply <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
               </div>
@@ -106,21 +112,24 @@ export default function HomePage() {
 
             {/* TeleCaller */}
             <IntersectionReveal className="h-full flex" delay={300}>
-              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200 p-8 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-100 transition-all bg-white w-full">
-                <div>
-                  <span className="text-xs font-semibold text-orange-500 uppercase tracking-widest block mb-6">Customer Support</span>
-                  <h3 className="text-2xl font-bold text-zinc-950">TeleCaller</h3>
-                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed">
+              <div className="group flex flex-col justify-between rounded-3xl border border-zinc-200/80 p-8 hover:border-orange-500/20 hover:shadow-xl hover:shadow-orange-500/[0.02] transition-all duration-500 bg-gradient-to-b from-white to-zinc-50/40 w-full relative overflow-hidden">
+                {/* Micro-glow inside card on hover */}
+                <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+
+                <div className="relative z-10">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-600 uppercase tracking-wider w-fit mb-6">Customer Support</span>
+                  <h3 className="text-2xl font-extrabold text-zinc-950 tracking-tight">TeleCaller</h3>
+                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed font-light">
                     Support candidate onboarding telephonically, guide delivery partners through mobile application setups, and resolve customer tickets.
                   </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
+                <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between relative z-10">
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-400">Est. Salary</span>
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Est. Salary</span>
                     <span className="text-sm font-bold text-zinc-900">₹20,000 - ₹40,000</span>
                   </div>
-                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 hover:text-orange-600">
-                    Apply <ArrowRight className="ml-1 h-4 w-4" />
+                  <Link href="/jobs" className="inline-flex items-center text-sm font-semibold text-orange-500 group-hover:text-orange-600 transition-colors duration-300">
+                    Apply <ArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
               </div>

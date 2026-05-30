@@ -27,10 +27,9 @@ function AnimatedCounter({ target, suffix = "", duration = 1500, trigger }: { ta
     window.requestAnimationFrame(step);
   }, [target, duration, trigger]);
 
-  // Fallback to target immediately if JavaScript is disabled
   return (
     <span>
-      {trigger ? count : target}
+      {trigger ? count : 0}
       {suffix}
     </span>
   );

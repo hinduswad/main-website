@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { auth } from "@/lib/auth";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,15 +22,17 @@ export const metadata: Metadata = {
   description: "Join India's leading food delivery and logistics operations network. Immediate hiring for Field Officers, Sales Executives, and TeleCallers.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
       <body className="antialiased text-zinc-900 bg-white" suppressHydrationWarning>
-        <Navbar />
+        <Navbar session={session} />
         {children}
         <Footer />
       </body>

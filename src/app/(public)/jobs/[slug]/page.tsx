@@ -259,7 +259,7 @@ export default async function JobDetailPage(props: { params: Params }) {
               {/* Description */}
               <div className="bg-white rounded-3xl border border-zinc-200 p-5 sm:p-6 shadow-sm">
                 <h2 className="text-base font-bold text-zinc-950 mb-3">Job Description</h2>
-                <p className="text-sm text-zinc-550 leading-relaxed">{job.description}</p>
+                <p className="text-sm text-zinc-500 leading-relaxed">{job.description}</p>
               </div>
 
               {/* Responsibilities */}
@@ -267,7 +267,7 @@ export default async function JobDetailPage(props: { params: Params }) {
                 <h2 className="text-base font-bold text-zinc-950 mb-3">Key Responsibilities</h2>
                 <ul className="space-y-3">
                   {job.responsibilities.map((resp, i) => (
-                    <li key={i} className="flex gap-2.5 text-sm text-zinc-550 items-start">
+                    <li key={i} className="flex gap-2.5 text-sm text-zinc-500 items-start">
                       <CheckCircle2 size={16} className="text-orange-500 shrink-0 mt-0.5" />
                       <span>{resp}</span>
                     </li>
@@ -281,7 +281,7 @@ export default async function JobDetailPage(props: { params: Params }) {
               {/* Requirements */}
               <div className="bg-white rounded-3xl border border-zinc-200 p-5 sm:p-6 shadow-sm">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-3">Eligibility</h3>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-550 leading-relaxed">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-500 leading-relaxed">
                   <li className="flex gap-2">
                     <span className="font-bold text-zinc-900">•</span>
                     <span>12th Pass or equivalent educational credentials</span>
@@ -306,17 +306,17 @@ export default async function JobDetailPage(props: { params: Params }) {
               {/* Recruitment Steps */}
               <div className="bg-white rounded-3xl border border-zinc-200 p-5 sm:p-6 shadow-sm">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-3">Selection Process</h3>
-                <ol className="space-y-3.5 text-xs sm:text-sm text-zinc-550 relative border-l border-zinc-150 pl-4 ml-2">
+                <ol className="space-y-3.5 text-xs sm:text-sm text-zinc-500 relative border-l border-zinc-150 pl-4 ml-2">
                   <li className="relative">
                     <span className="absolute -left-6 top-0 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-orange-500 text-white text-[9px] font-bold shadow-sm shadow-orange-500/25">1</span>
                     <span className="font-semibold text-zinc-950 block leading-tight">Registration</span>
-                    <span className="text-[10px] sm:text-[11px] text-zinc-450 block mt-0.5">Submit details & verification fee.</span>
+                    <span className="text-[10px] sm:text-[11px] text-zinc-500 block mt-0.5">Submit details & verification fee.</span>
                   </li>
                   {job.employmentType === "PERMANENT" && (
                     <li className="relative">
                       <span className="absolute -left-6 top-0 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-orange-500 text-white text-[9px] font-bold shadow-sm shadow-orange-500/25">2</span>
                       <span className="font-semibold text-zinc-950 block leading-tight">Assessment</span>
-                      <span className="text-[10px] sm:text-[11px] text-zinc-450 block mt-0.5">60-min online MCQ test.</span>
+                      <span className="text-[10px] sm:text-[11px] text-zinc-500 block mt-0.5">60-min online MCQ test.</span>
                     </li>
                   )}
                   <li className="relative">
@@ -324,14 +324,14 @@ export default async function JobDetailPage(props: { params: Params }) {
                       {job.employmentType === "PERMANENT" ? 3 : 2}
                     </span>
                     <span className="font-semibold text-zinc-950 block leading-tight">Interview</span>
-                    <span className="text-[10px] sm:text-[11px] text-zinc-450 block mt-0.5">Candidate soft skill evaluations.</span>
+                    <span className="text-[10px] sm:text-[11px] text-zinc-500 block mt-0.5">Candidate soft skill evaluations.</span>
                   </li>
                   <li className="relative">
                     <span className="absolute -left-6 top-0 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-orange-500 text-white text-[9px] font-bold shadow-sm shadow-orange-500/25">
                       {job.employmentType === "PERMANENT" ? 4 : 3}
                     </span>
                     <span className="font-semibold text-zinc-950 block leading-tight">Onboarding</span>
-                    <span className="text-[10px] sm:text-[11px] text-zinc-450 block mt-0.5">Receive training, fuel card & start.</span>
+                    <span className="text-[10px] sm:text-[11px] text-zinc-500 block mt-0.5">Receive training, fuel card & start.</span>
                   </li>
                 </ol>
               </div>

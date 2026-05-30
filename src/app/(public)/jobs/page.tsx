@@ -237,26 +237,25 @@ export default async function JobsPage(props: { searchParams: SearchParams }) {
             {jobs.map((job) => (
               <div
                 key={job.id}
-                className="group flex flex-col md:flex-row md:items-center md:justify-between bg-white border border-zinc-150 p-5 sm:p-6 rounded-3xl transition-all duration-500 hover:shadow-lg hover:shadow-zinc-100/60 hover:border-zinc-250"
+                className="group flex flex-col md:flex-row md:items-center md:justify-between bg-gradient-to-b from-white to-zinc-50/30 border border-zinc-200/80 p-5 sm:p-6 rounded-3xl transition-all duration-500 hover:shadow-lg hover:shadow-orange-500/[0.01] hover:border-orange-500/20"
               >
                 {/* Title & Badge */}
-                <div className="space-y-1.5 md:max-w-md">
-                  <div className="flex items-center gap-3.5">
-                    <span className="text-[10px] font-bold text-orange-500 uppercase tracking-wider">
+                <div className="space-y-2 md:max-w-md">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold bg-orange-500/10 text-orange-600 uppercase tracking-wider">
                       {job.roleType.replace("_", " ")}
                     </span>
-                    <span className="text-zinc-300">•</span>
-                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold bg-zinc-100 text-zinc-500 uppercase tracking-wider">
                       {job.employmentType}
                     </span>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-zinc-950 tracking-tight transition-colors duration-305 group-hover:text-orange-500">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-zinc-950 tracking-tight transition-colors duration-300 group-hover:text-orange-500">
                     {job.title}
                   </h3>
                 </div>
 
                 {/* Horizontal Quick Stats */}
-                <div className="grid grid-cols-2 sm:flex sm:items-center gap-x-6 gap-y-2.5 my-3 md:my-0">
+                <div className="grid grid-cols-2 sm:flex sm:items-center gap-x-6 gap-y-2.5 my-4 md:my-0">
                   <div className="flex items-center gap-2">
                     <MapPin size={16} className="text-zinc-400 shrink-0" />
                     <div>
@@ -269,7 +268,7 @@ export default async function JobsPage(props: { searchParams: SearchParams }) {
                     <CreditCard size={16} className="text-zinc-400 shrink-0" />
                     <div>
                       <span className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider">Monthly Est.</span>
-                      <span className="text-sm font-semibold text-zinc-950">
+                      <span className="text-sm font-bold text-zinc-950">
                         ₹{(job.salaryMin / 1000).toFixed(0)}k - {(job.salaryMax / 1000).toFixed(0)}k
                       </span>
                     </div>
@@ -279,7 +278,7 @@ export default async function JobsPage(props: { searchParams: SearchParams }) {
 
                   <div>
                     <span className="block text-[9px] font-bold text-zinc-400 uppercase tracking-wider">Application Fee</span>
-                    <span className="text-sm font-bold text-orange-500">₹{job.applicationFee}</span>
+                    <span className="text-sm font-black text-orange-500">₹{job.applicationFee}</span>
                   </div>
                 </div>
 
