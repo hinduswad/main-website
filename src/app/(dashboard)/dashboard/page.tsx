@@ -31,10 +31,10 @@ export default async function DashboardPage() {
   const applications = res.success ? res.applications : [];
 
   return (
-    <main className="min-h-screen bg-zinc-50/50 py-16 sm:py-20">
+    <main className="min-h-screen py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4">
         {/* Welcome Section */}
-        <div className="bg-white rounded-3xl border border-zinc-200 p-6 sm:p-8 shadow-sm mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="bg-white rounded-3xl border border-zinc-200/50 p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-bold text-orange-500 uppercase tracking-widest block mb-1">
               Candidate Workspace
@@ -79,7 +79,7 @@ export default async function DashboardPage() {
               const refId = `FD-2026-${app.id.slice(-6).toUpperCase()}`;
 
               return (
-                <div key={app.id} className="bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+                <div key={app.id} className="bg-white border border-zinc-200/50 rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] space-y-6 animate-premium-reveal">
                   {/* Job Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-zinc-100">
                     <div>
@@ -129,10 +129,10 @@ export default async function DashboardPage() {
                             <div key={stage.label} className="flex flex-col items-center">
                               <div className={`h-7 w-7 rounded-full flex items-center justify-center border-2 text-[10px] font-bold mb-1.5 ${
                                 isDone
-                                  ? "bg-emerald-500 border-emerald-500 text-white shadow-sm shadow-emerald-500/10"
+                                  ? "bg-emerald-500 border-emerald-500 text-white shadow-sm"
                                   : isCurrent
-                                  ? "bg-white border-orange-500 text-orange-500 shadow-md"
-                                  : "bg-zinc-50 border-zinc-200 text-zinc-400"
+                                  ? "bg-white border-orange-500 text-orange-500 shadow-[0_4px_12px_rgba(235,89,26,0.12)] scale-105"
+                                  : "bg-zinc-50/50 border-zinc-200/50 text-zinc-400"
                               }`}>
                                 {isDone ? "✓" : idx + 1}
                               </div>
@@ -150,12 +150,12 @@ export default async function DashboardPage() {
 
                   {/* Action Callouts */}
                   {app.status === "PAYMENT_PENDING" && (
-                    <div className="bg-amber-50 border border-amber-250 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-800">
+                    <div className="bg-amber-50/50 border border-amber-200/40 p-4.5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-800">
                       <div className="flex items-center gap-2.5">
                         <Clock size={16} className="text-amber-500 shrink-0" />
-                        <span>**Payment Needed**: Submit application fee to confirm assessment schedule.</span>
+                        <span>Payment Needed: Submit application fee to confirm assessment schedule.</span>
                       </div>
-                      <Button asChild size="sm" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full">
+                      <Button asChild size="sm" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-5 py-2">
                         <Link href={`/apply/${app.jobPost.id}/payment`}>
                           Pay Fee Now <ChevronRight size={14} />
                         </Link>
@@ -164,17 +164,17 @@ export default async function DashboardPage() {
                   )}
 
                   {app.status === "EXAM_SCHEDULED" && app.exams?.[0] && (
-                    <div className="bg-orange-50 border border-orange-250 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-orange-800">
+                    <div className="bg-orange-50/50 border border-orange-200/30 p-4.5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-orange-850">
                       <div className="flex items-start gap-2.5">
                         <BookOpen size={16} className="text-orange-500 shrink-0 mt-0.5" />
                         <div>
-                          **Onboarding Assessment Available**
-                          <span className="block text-[11px] text-orange-600/90 mt-0.5">
+                          <span className="font-bold">Onboarding Assessment Available</span>
+                          <span className="block text-[11px] text-orange-600/80 mt-0.5">
                             You have a 60-minute MCQ test scheduled. Complete it to progress to the interview phase.
                           </span>
                         </div>
                       </div>
-                      <Button size="sm" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full">
+                      <Button size="sm" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-5 py-2">
                         Start Assessment
                       </Button>
                     </div>

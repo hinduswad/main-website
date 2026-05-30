@@ -31,6 +31,18 @@
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
 
+  --color-orange-50: hsl(22 100% 97.5%);
+  --color-orange-100: hsl(22 95% 93%);
+  --color-orange-200: hsl(22 92% 85%);
+  --color-orange-300: hsl(22 90% 74%);
+  --color-orange-400: hsl(22 88% 62%);
+  --color-orange-500: hsl(22 88% 48%);
+  --color-orange-600: hsl(22 92% 43%);
+  --color-orange-700: hsl(22 94% 36%);
+  --color-orange-800: hsl(22 96% 28%);
+  --color-orange-900: hsl(22 98% 20%);
+  --color-orange-950: hsl(22 99% 12%);
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -70,13 +82,13 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 24 15% 98.8%; /* Soothing Warm Creamy Alabaster */
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 24 100% 50%; /* Vibrant Orange */
+    --primary: 22 88% 48%; /* Premium Terracotta Orange */
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -86,10 +98,10 @@
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 24 100% 50%;
-    --radius: 1rem; /* More rounded premium corners */
+    --border: 24 8% 92%; /* Softer warm-tinted border */
+    --input: 24 8% 90%;
+    --ring: 22 88% 48%;
+    --radius: 1.25rem; /* Larger, smoother rounded corners (Apple style) */
   }
   .dark {
     --background: 240 10% 3.9%;

@@ -1,0 +1,263 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  CANDIDATE
+  ADMIN
+  SUPERADMIN
+}
+
+enum EmploymentType {
+  PERMANENT
+  TEMPORARY
+}
+
+enum JobRole {
+  FIELD_OFFICER
+  SALES_EXECUTIVE
+  TELECALLER
+}
+
+enum ApplicationStatus {
+  DRAFT
+  APPLIED
+  PAYMENT_PENDING
+  PAID
+  EXAM_SCHEDULED
+  EXAM_COMPLETED
+  INTERVIEW_SCHEDULED
+  INTERVIEW_COMPLETED
+  DOCUMENT_VERIFICATION
+  TRAINING
+  PROBATION
+  CONFIRMED
+  REJECTED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum DocType {
+  PHOTO
+  AADHAAR
+  RESUME
+  EXPERIENCE_CERT
+  PAYMENT_RECEIPT
+}
+
+enum DocVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  phone         String    @unique
+  password      String
+  role          UserRole  @default(CANDIDATE)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  profile       Profile?
+  applications  Application[]
+
+  @@map("users")
+}
+
+model Profile {
+  id                          String   @id @default(cuid())
+  userId                      String   @unique @map("user_id")
+
+  // Personal
+  fullName                    String   @map("full_name")
+  fatherName                  String   @map("father_name")
+  dob                         DateTime
+  gender                      String
+  mobile                      String
+  email                       String?
+  panNumber                   String   @map("pan_number")
+  currentAddress              String   @map("current_address")
+  currentPin                  String   @map("current_pin")
+  permanentAddress            String   @map("permanent_address")
+  permanentPin                String   @map("permanent_pin")
+  languagesKnown              String[] @map("languages_known")
+
+  // Professional
+  highestQualification        String   @map("highest_qualification")
+  isFresher                   Boolean  @map("is_fresher")
+  previousCompany             String?  @map("previous_company")
+  totalExperienceYears        Int?     @map("total_experience_years")
+  districtPreference          String   @map("district_preference")
+  willingToRelocate           Boolean  @map("willing_to_relocate")
+
+  // Supervisor / Leadership
+  managementSkillLevel        String   @map("management_skill_level")
+  hasSupervisoryExperience    Boolean  @map("has_supervisory_experience")
+  supervisoryExperienceYears  Int?     @map("supervisory_experience_years")
+  comfortableLeading          Boolean  @map("comfortable_leading")
+  willingToTravel             Boolean  @map("willing_to_travel")
+  hasTwoWheeler               Boolean  @map("has_two_wheeler")
+
+  // Documents
+  photoUrl                    String?  @map("photo_url")
+  aadhaarUrl                  String?  @map("aadhaar_url")
+  resumeUrl                   String?  @map("resume_url")
+  experienceCertUrl           String?  @map("experience_cert_url")
+
+  user                        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model JobPost {
+  id                String         @id @default(cuid())
+  title             String
+  slug              String         @unique
+  roleType          JobRole        @map("role_type")
+  employmentType    EmploymentType @map("employment_type")
+  description       String         @db.Text
+  responsibilities  String[]
+  salaryMin         Int            @map("salary_min")
+  salaryMax         Int            @map("salary_max")
+  totalPosts        Int            @map("total_posts")
+  filledPosts       Int            @default(0) @map("filled_posts")
+  status            String         @default("open")
+  district          String
+  state             String         @default("Karnataka")
+  workMode          String         @default("field") @map("work_mode")
+  applicationFee    Int            @map("application_fee")
+  postedAt          DateTime       @default(now()) @map("posted_at")
+  closesAt          DateTime?      @map("closes_at")
+
+  applications      Application[]
+
+  @@index([status])
+  @@index([district])
+  @@index([roleType])
+  @@index([employmentType])
+  @@map("job_posts")
+}
+
+model Application {
+  id              String            @id @default(cuid())
+  userId          String            @map("user_id")
+  jobPostId       String            @map("job_post_id")
+  applicationType   EmploymentType    @map("application_type")
+  status          ApplicationStatus @default(APPLIED)
+
+  // Payment
+  paymentStatus   PaymentStatus     @default(PENDING) @map("payment_status")
+  paymentAmount   Int               @map("payment_amount")
+  paidAt          DateTime?         @map("paid_at")
+
+  // Assessment
+  examScore       Int?              @map("exam_score")
+  interviewScore  Int?              @map("interview_score")
+
+  appliedAt       DateTime          @default(now()) @map("applied_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobPost         JobPost           @relation(fields: [jobPostId], references: [id], onDelete: Cascade)
+
+  documents       Document[]
+  exams           Exam[]
+  interviews      Interview[]
+  transactions    Transaction[]
+
+  @@index([userId])
+  @@index([jobPostId])
+  @@index([status])
+  @@index([paymentStatus])
+  @@map("applications")
+}
+
+model Document {
+  id                String                @id @default(cuid())
+  applicationId     String                @map("application_id")
+  docType           DocType               @map("doc_type")
+  fileUrl           String                @map("file_url")
+  verificationStatus DocVerificationStatus @default(PENDING) @map("verification_status")
+  verifiedBy        String?               @map("verified_by")
+  verifiedAt        DateTime?             @map("verified_at")
+  rejectionReason   String?               @map("rejection_reason")
+
+  application       Application           @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("documents")
+}
+
+model Exam {
+  id              String    @id @default(cuid())
+  applicationId   String    @map("application_id")
+  scheduledAt     DateTime? @map("scheduled_at")
+  completedAt     DateTime? @map("completed_at")
+  score           Int?
+  maxScore        Int       @default(100) @map("max_score")
+  status          String    @default("scheduled")
+
+  application     Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("exams")
+}
+
+model Interview {
+  id            String    @id @default(cuid())
+  applicationId String    @map("application_id")
+  scheduledAt   DateTime? @map("scheduled_at")
+  completedAt   DateTime? @map("completed_at")
+  mode          String    @default("offline")
+  location      String?
+  meetingLink   String?   @map("meeting_link")
+  feedback      String?   @db.Text
+  rating        Int?
+  status        String    @default("scheduled")
+
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("interviews")
+}
+
+model Transaction {
+  id                String    @id @default(cuid())
+  applicationId     String    @map("application_id")
+  userId            String    @map("user_id")
+  razorpayOrderId   String    @map("razorpay_order_id")
+  razorpayPaymentId String?   @map("razorpay_payment_id")
+  razorpaySignature String?   @map("razorpay_signature")
+  amount            Int
+  currency          String    @default("INR")
+  status            PaymentStatus @default(PENDING)
+  metadata          Json?
+  createdAt         DateTime  @default(now()) @map("created_at")
+
+  application       Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("transactions")
+}
+
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  fullName  String   @map("full_name")
+  email     String?
+  phone     String
+  message   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_inquiries")
+}

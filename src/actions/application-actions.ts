@@ -282,7 +282,9 @@ export async function completePaymentAction(applicationId: string, pStatus: "PAI
     }
 
     if (pStatus === "PAID") {
-      const nextStatus = application.applicationType === "PERMANENT" ? "EXAM_SCHEDULED" : "PAID";
+      // Both PERMANENT and TEMPORARY applications will have 'PAID' status after payment,
+      // awaiting manual review and exam approval from the admin portal.
+      const nextStatus = "PAID";
       await prisma.application.update({
         where: { id: applicationId },
         data: {
@@ -291,17 +293,6 @@ export async function completePaymentAction(applicationId: string, pStatus: "PAI
           paidAt: new Date(),
         },
       });
-
-      // Seed an exam record if permanent role
-      if (application.applicationType === "PERMANENT") {
-        await prisma.exam.create({
-          data: {
-            applicationId: applicationId,
-            status: "scheduled",
-            scheduledAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), // Scheduled in 2 days
-          },
-        });
-      }
     } else {
       await prisma.application.update({
         where: { id: applicationId },

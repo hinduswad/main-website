@@ -302,7 +302,7 @@ export default function HomePage() {
       {/* Premium Bottom CTA Section with Scooter Illustration */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <IntersectionReveal>
-          <div className="relative overflow-hidden bg-black rounded-3xl px-8 py-16 sm:px-16 sm:py-24 shadow-2xl border border-zinc-900">
+          <div className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0b] via-[#121214] to-[#202022] rounded-3xl px-8 py-16 sm:px-16 sm:py-24 shadow-2xl border border-zinc-800/40">
             <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center relative z-10">
               <div className="lg:col-span-7 space-y-6 text-left">
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
