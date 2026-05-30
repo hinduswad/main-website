@@ -72,27 +72,27 @@ APP_URL="http://localhost:3003"
 Follow these steps to run the application on your local machine:
 
 ### 1. Install Dependencies
-Make sure you are using `pnpm` (configured for workspace support):
+Install packages using `npm` (recommending `--legacy-peer-deps` to handle React 19 peer conflict in lucide-react):
 ```bash
-pnpm install
+npm install --legacy-peer-deps
 ```
 
 ### 2. Generate Prisma Client
 Compile the database schema into the local client binaries:
 ```bash
-pnpm prisma generate
+npx prisma generate
 ```
 
 ### 3. Run Database Migrations (Optional)
 If setting up a fresh database, apply the migrations:
 ```bash
-pnpm prisma db push
+npx prisma db push
 ```
 
 ### 4. Seed the Database
 Seed the job listings and initial mock details:
 ```bash
-pnpm prisma db seed
+npx prisma db seed
 ```
 
 Then, seed the default Admin credentials in the database:
@@ -104,24 +104,14 @@ node --env-file=.env.local ./node_modules/tsx/dist/cli.mjs seed-admin.ts
 
 ### 5. Launch the Development Server
 ```bash
-pnpm dev
+npm run dev
 ```
 Open **[http://localhost:3003](http://localhost:3003)** to explore the candidate portal!
 
 ---
 
-## ☁️ Deployment Guidelines (pnpm v10+ Compatibility)
+## ☁️ Deployment Guidelines (npm Migration)
 
-Since `pnpm` version 10+ blocks native script builds by default for security, the workspace configuration `pnpm-workspace.yaml` explicitly whitelists native packages required for compiling and deploying this Next.js app:
+To avoid deployment failures on **Hostinger** and other platforms due to `pnpm v10+`'s default blocking of postinstall native build scripts (`ERR_PNPM_IGNORED_BUILDS`), this project has been fully migrated to use **`npm`**. 
 
-```yaml
-onlyBuiltDependencies:
-  - '@prisma/client'
-  - '@prisma/engines'
-  - esbuild
-  - prisma
-  - sharp
-  - unrs-resolver
-```
-
-This guarantees flawless postinstall execution and builds on deployment platforms like **Hostinger**, Vercel, or standalone AWS environments.
+Using `npm` automatically allows required postinstall scripts for native dependencies (`@prisma/client`, `prisma`, `esbuild`, `sharp`, `unrs-resolver`) to compile and execute without extra configuration or restriction, guaranteeing seamless and reliable production builds.
