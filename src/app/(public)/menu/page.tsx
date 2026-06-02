@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Menu - Hindu Swad",
+  title: "Sample Menu - Hindu Swad",
   description: "Explore our menu of authentic South Indian cuisine. From crispy dosas to fluffy idlis, taste the tradition with Hindu Swad.",
 };
 
@@ -39,12 +39,12 @@ export default function SampleMenuPage() {
       {/* Hero Section */}
       <section className="warm-bg py-16 sm:py-24 border-b border-zinc-100">
         <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
-          <span className="badge-soon mb-4 mx-auto w-fit">Menu</span>
+          <span className="badge-soon mb-4 mx-auto w-fit">Sample Menu</span>
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-zinc-950 mb-4 leading-tight">
             A Taste of <span className="text-orange-600">Tradition</span>
           </h1>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed">
-            Discover the rich flavors of authentic South Indian cuisine. This is a menu showcasing the kind of premium culinary experiences you can expect from our partners.
+            Discover the rich flavors of authentic South Indian cuisine. This is a sample menu showcasing the kind of premium culinary experiences you can expect from our partners.
           </p>
         </div>
       </section>

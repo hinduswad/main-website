@@ -4,7 +4,7 @@ import { Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
   { label: "Home",            href: "/" },
-  { label: "Menu",     href: "/menu" },
+  { label: "Sample Menu",     href: "/menu" },
   { label: "About Us",        href: "/about" },
   { label: "Privacy Policy",  href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
