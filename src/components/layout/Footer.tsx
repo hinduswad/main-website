@@ -4,8 +4,7 @@ import { Mail, MapPin, Instagram, Twitter, Linkedin, Facebook } from "lucide-rea
 
 const footerLinks = [
   { label: "Home",            href: "/" },
-  { label: "About",           href: "/about" },
-  { label: "Contact",         href: "/contact" },
+  { label: "About Us",        href: "/about" },
   { label: "Privacy Policy",  href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
   { label: "Cancellation & Refund", href: "/refund-policy" },

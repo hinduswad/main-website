@@ -192,7 +192,7 @@ export default function RefundPolicyPage() {
               <div id="s7">
                 <h2>7. Dispute Resolution</h2>
                 <p>
-                  If you disagree with a cancellation penalty or a refund decision, you may escalate the matter to our Grievance Officer within 7 days of the incident. Please refer to our <Link href="/contact">Contact Page</Link> for Grievance Officer details. Hindu Swad's decision post-investigation shall be final and binding.
+                  If you disagree with a cancellation penalty or a refund decision, you may escalate the matter to our Grievance Officer within 7 days of the incident. Please contact us at support@hinduswad.com for Grievance Officer details. Hindu Swad's decision post-investigation shall be final and binding.
                 </p>
               </div>
 

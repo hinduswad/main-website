@@ -217,7 +217,7 @@ export default function TermsPage() {
               <div id="s15">
                 <h2>15. Grievance Redressal</h2>
                 <p>
-                  If you have any grievances or complaints, please refer to the Grievance Officer details provided in our <Link href="/contact">Contact</Link> and <Link href="/privacy">Privacy Policy</Link> pages.
+                  If you have any grievances or complaints, please refer to the Grievance Officer details provided in our <Link href="/privacy">Privacy Policy</Link> page.
                 </p>
               </div>
 

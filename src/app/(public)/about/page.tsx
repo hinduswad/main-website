@@ -361,9 +361,9 @@ export default function AboutPage() {
           <p className="text-orange-100 text-sm mb-8 max-w-lg mx-auto">
             Whether you&apos;re a potential restaurant partner, a future delivery professional, or simply excited about our platform — reach out. We&apos;d love to hear from you.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors text-sm shadow-xl">
+          <a href="mailto:support@hinduswad.com" className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors text-sm shadow-xl">
             Get in Touch <ArrowRight size={14} />
-          </Link>
+          </a>
         </div>
       </section>
     </main>

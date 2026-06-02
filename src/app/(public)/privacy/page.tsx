@@ -431,7 +431,6 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Privacy Enquiries:</strong> support@hinduswad.com</li>
                   <li><strong>General Contact:</strong> support@hinduswad.com</li>
                   <li><strong>Postal Address:</strong> Hindu Swad Pvt. Ltd., Karnataka Regional Office, Bangalore, Karnataka — 560001, India</li>
-                  <li><strong>Contact Form:</strong> <Link href="/contact">hinduswad.com/contact</Link></li>
                 </ul>
               </div>
 
