@@ -52,10 +52,6 @@ export const metadata: Metadata = {
     site: "@hinduswad",
     images: ["/images/og-image.jpg"],
   },
-  icons: {
-    icon: "/images/web-icon-32x32.png",
-    apple: "/images/ios-icon-180x180.png",
-  },
   alternates: { canonical: "https://hinduswad.com" },
 };
 
