@@ -8,6 +8,8 @@ const footerLinks = [
   { label: "Contact",         href: "/contact" },
   { label: "Privacy Policy",  href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
+  { label: "Cancellation & Refund", href: "/refund-policy" },
+  { label: "Disclaimer",      href: "/disclaimer" },
 ];
 
 const socials = [

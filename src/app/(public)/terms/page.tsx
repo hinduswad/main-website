@@ -84,7 +84,7 @@ export default function TermsPage() {
                   These Terms of Service (&ldquo;Terms&rdquo;) constitute a legally binding agreement between you (&ldquo;User&rdquo;, &ldquo;you&rdquo;, or &ldquo;your&rdquo;) and <strong>Hindu Swad Private Limited</strong> (&ldquo;Hindu Swad&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), operating under the brand name &ldquo;Hindu Swad&rdquo;.
                 </p>
                 <p>
-                  By downloading, installing, accessing, or using the Hindu Swad mobile application, website (hinduswad.com), or any associated services (collectively, the &ldquo;Platform&rdquo;), you expressly acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our <Link href="/privacy">Privacy Policy</Link> and <Link href="/refund-policy">Cancellation & Refund Policy</Link>.
+                  By downloading, installing, accessing, or using the Hindu Swad mobile application, website (hinduswad.com), or any associated services (collectively, the &ldquo;Platform&rdquo;), you expressly acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our <Link href="/privacy">Privacy Policy</Link>, <Link href="/refund-policy">Cancellation &amp; Refund Policy</Link>, and our <Link href="/disclaimer" className="text-orange-600 font-semibold underline">Liability &amp; Health Disclaimer</Link>.
                 </p>
                 <p>
                   If you do not agree to these Terms, you must not use the Platform and must delete your account immediately.
@@ -126,6 +126,7 @@ export default function TermsPage() {
                   </li>
                   <li><strong>Platform Responsibility:</strong> Hindu Swad is responsible solely for operating the technology interface, facilitating payment collection, and coordinating the logistics of delivery via independent Delivery Executives.</li>
                   <li><strong>No Endorsement:</strong> The listing of a Merchant on the Platform does not constitute an endorsement or warranty of their food quality or safety by Hindu Swad.</li>
+                  <li><strong>Allergy &amp; Health Disclaimer:</strong> Hindu Swad is absolutely not responsible for allergic reactions, food poisoning, dietary issues, or any health complications arising from food ordered via the platform. You must consult the Merchant directly regarding ingredients. See our <Link href="/disclaimer" className="text-orange-500 underline">full Disclaimer</Link> for details.</li>
                 </ul>
               </div>
 
