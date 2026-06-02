@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
                 </ol>
                 <div className="mt-8 p-4 bg-orange-50 rounded-xl border border-orange-100">
                   <p className="text-[0.65rem] font-bold text-orange-700 mb-1">Questions?</p>
-                  <a href="mailto:privacy@hinduswad.com" className="text-[0.65rem] text-orange-600 underline">privacy@hinduswad.com</a>
+                  <a href="mailto:support@hinduswad.com" className="text-[0.65rem] text-orange-600 underline">support@hinduswad.com</a>
                 </div>
               </div>
             </aside>
@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>CIN:</strong> U63120KA2025PTC206410</li>
                   <li><strong>GSTIN:</strong> 29AAICH1082Q1ZY</li>
                   <li><strong>Registered Address:</strong> Hindu Swad Pvt. Ltd., Karnataka Regional Office, Bangalore, Karnataka — 560001</li>
-                  <li><strong>Privacy Email:</strong> privacy@hinduswad.com</li>
+                  <li><strong>Privacy Email:</strong> support@hinduswad.com</li>
                   <li><strong>Grievance Officer Email:</strong> support@hinduswad.com</li>
                 </ul>
               </div>
@@ -349,12 +349,12 @@ export default function PrivacyPolicyPage() {
 
               <div id="s11">
                 <h2>11. Your Rights</h2>
-                <p>Under applicable Indian law, you have the following rights with respect to your personal data. To exercise any right, contact us at <strong>privacy@hinduswad.com</strong>. We will respond within 30 days.</p>
+                <p>Under applicable Indian law, you have the following rights with respect to your personal data. To exercise any right, contact us at <strong>support@hinduswad.com</strong>. We will respond within 30 days.</p>
                 <ul>
                   <li><strong>Right of Access:</strong> You may request a copy of all personal data we hold about you. We will provide this in a structured, machine-readable format.</li>
                   <li><strong>Right to Correction:</strong> You may request correction of any inaccurate or incomplete personal data.</li>
                   <li><strong>Right to Deletion:</strong> You may request deletion of your account and associated personal data. Deletion will be completed within 30 days, subject to our legal retention obligations under Section 9. Data that must be retained for statutory periods will be quarantined and used only for compliance purposes.</li>
-                  <li><strong>Right to Withdraw Consent:</strong> You may withdraw consent for processing at any time by: (a) revoking app permissions through device settings; (b) opting out of marketing through account settings or email unsubscribe links; (c) submitting a data processing objection to privacy@hinduswad.com. Withdrawal of consent will not affect the lawfulness of processing carried out prior to withdrawal.</li>
+                  <li><strong>Right to Withdraw Consent:</strong> You may withdraw consent for processing at any time by: (a) revoking app permissions through device settings; (b) opting out of marketing through account settings or email unsubscribe links; (c) submitting a data processing objection to support@hinduswad.com. Withdrawal of consent will not affect the lawfulness of processing carried out prior to withdrawal.</li>
                   <li><strong>Right to Portability:</strong> You may request a portable copy of your personal data in a machine-readable format (JSON/CSV) for transfer to another service provider.</li>
                   <li><strong>Right to Object:</strong> You may object to processing of your data for direct marketing at any time. You may also object to other forms of processing based on legitimate interests by demonstrating that your fundamental rights override our legitimate interests.</li>
                   <li><strong>Right to manage Location permissions:</strong> Revoke or modify location permissions at any time through device settings as described in Section 7.</li>
@@ -371,7 +371,7 @@ export default function PrivacyPolicyPage() {
                   If we become aware that we have inadvertently collected personal data from a minor, we will: (a) immediately suspend the account pending investigation; (b) delete all associated personal data within 72 hours; and (c) notify the parent or guardian if contact information is available.
                 </p>
                 <p>
-                  Parents or guardians who believe their child has created a Hindu Swad account should contact us immediately at <strong>privacy@hinduswad.com</strong>.
+                  Parents or guardians who believe their child has created a Hindu Swad account should contact us immediately at <strong>support@hinduswad.com</strong>.
                 </p>
               </div>
 
@@ -428,7 +428,7 @@ export default function PrivacyPolicyPage() {
                 <h2>17. Contact</h2>
                 <p>For any questions, concerns, or requests regarding this Privacy Policy or the processing of your personal data:</p>
                 <ul>
-                  <li><strong>Privacy Email:</strong> privacy@hinduswad.com</li>
+                  <li><strong>Privacy Enquiries:</strong> support@hinduswad.com</li>
                   <li><strong>General Contact:</strong> support@hinduswad.com</li>
                   <li><strong>Postal Address:</strong> Hindu Swad Pvt. Ltd., Karnataka Regional Office, Bangalore, Karnataka — 560001, India</li>
                   <li><strong>Contact Form:</strong> <Link href="/contact">hinduswad.com/contact</Link></li>
