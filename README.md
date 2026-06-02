@@ -48,9 +48,9 @@ RAZORPAY_KEY_ID="rzp_test_xxxxxx"
 RAZORPAY_KEY_SECRET="your_razorpay_secret"
 
 # Supabase Storage
-NEXT_PUBLIC_SUPABASE_URL="https://your-supabase-project.supabase.co"
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="your-publishable-key"
-SUPABASE_URL="https://your-supabase-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_URL="https://eskczablvuqbpigskttu.supabase.co"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="sb_publishable_WUpD6-bJaNYUMVd_jtccew_NvL9UnK1"
+SUPABASE_URL="https://eskczablvuqbpigskttu.supabase.co"
 SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
 
 # Email Integration (Resend)

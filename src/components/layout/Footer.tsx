@@ -1,93 +1,113 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Mail, MapPin, Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
+
+const footerLinks = [
+  { label: "Home",            href: "/" },
+  { label: "About",           href: "/about" },
+  { label: "Contact",         href: "/contact" },
+  { label: "Privacy Policy",  href: "/privacy" },
+  { label: "Terms & Conditions", href: "/terms" },
+];
+
+const socials = [
+  { name: "Instagram", href: "#", icon: Instagram },
+  { name: "Twitter",   href: "#", icon: Twitter },
+  { name: "LinkedIn",  href: "#", icon: Linkedin },
+  { name: "Facebook",  href: "#", icon: Facebook },
+];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-0.5">
-              <span className="text-lg font-bold tracking-tight text-zinc-900 leading-tight">
-                Hindu<span className="text-orange-500">Swad</span>
-              </span>
-              <span className="text-xs font-semibold text-orange-500 tracking-wide italic">
-                Taste with Trust
-              </span>
+    <footer className="bg-zinc-950 text-zinc-400" role="contentinfo">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-14 pb-8">
+
+        {/* Top grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/6">
+
+          {/* Brand column */}
+          <div className="space-y-5">
+            <Link href="/" className="flex items-center gap-2.5 group" aria-label="Hindu Swad">
+              <div className="relative w-8 h-8 rounded-xl overflow-hidden ring-1 ring-white/10 flex-shrink-0">
+                <Image src="/images/logo.jpeg" alt="Hindu Swad" fill className="object-cover" />
+              </div>
+              <div className="leading-none">
+                <p className="text-[1rem] font-extrabold text-white tracking-tight font-display leading-tight">
+                  Hindu<span className="text-orange-400">Swad</span>
+                </p>
+                <p className="text-[0.55rem] font-semibold text-orange-400/70 tracking-widest uppercase">
+                  Taste with Trust
+                </p>
+              </div>
+            </Link>
+
+            <p className="text-sm text-zinc-500 leading-relaxed max-w-xs">
+              India&apos;s next food discovery platform — connecting food lovers with great dining experiences. Launching soon.
+            </p>
+
+            <div className="flex gap-2.5">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Hindu Swad on ${s.name}`}
+                  className="w-8 h-8 rounded-lg bg-white/5 hover:bg-orange-500 flex items-center justify-center transition-all duration-300 group"
+                >
+                  <s.icon size={14} className="text-zinc-400 group-hover:text-white transition-colors duration-300" />
+                </a>
+              ))}
             </div>
-            <p className="text-sm text-zinc-500 max-w-xs leading-relaxed mt-2">
-              Empowering local communities with a state-of-the-art recruitment and delivery network built on respect, fair compensation, and safety.
-            </p>
           </div>
-          
+
+          {/* Navigation column */}
           <div>
-            <h4 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/jobs" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  Careers / Jobs
-                </Link>
-              </li>
+            <h3 className="text-[0.65rem] font-bold text-zinc-400 uppercase tracking-widest mb-4">Navigation</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-zinc-500 hover:text-orange-400 transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Contact column */}
           <div>
-            <h4 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-4">Resources</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/faqs" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/refund-policy" className="text-sm text-zinc-500 hover:text-orange-500 transition-colors">
-                  Refund Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <h3 className="text-[0.65rem] font-bold text-zinc-400 uppercase tracking-widest mb-4">Contact</h3>
+            <div className="space-y-3">
+              <a
+                href="mailto:[SUPPORT_EMAIL]"
+                className="flex items-center gap-2 text-sm text-zinc-500 hover:text-orange-400 transition-colors duration-200"
+              >
+                <Mail size={13} className="text-orange-500/60 flex-shrink-0" />
+                [SUPPORT_EMAIL]
+              </a>
+              <div className="flex items-start gap-2 text-sm text-zinc-500">
+                <MapPin size={13} className="text-orange-500/60 flex-shrink-0 mt-0.5" />
+                <span>[REGISTERED_ADDRESS], Bangalore, Karnataka, India</span>
+              </div>
+            </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-4">Office</h4>
-            <p className="text-sm text-zinc-500 mb-2">
-              Karnataka Regional Office
-            </p>
-            <p className="text-sm text-zinc-500">
-              Bangalore, Karnataka, India
-            </p>
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 bg-white/4 border border-white/8 rounded-xl">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse-soft flex-shrink-0" />
+              <span className="text-xs font-semibold text-zinc-300">Platform launching soon</span>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-zinc-200 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-zinc-400">
-            &copy; {currentYear} HinduSwad. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-zinc-400">
-            <a href="#" className="hover:text-orange-500 transition-colors">Twitter</a>
-            <a href="#" className="hover:text-orange-500 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-orange-500 transition-colors">Facebook</a>
-          </div>
+        {/* Bottom bar */}
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600">
+          <p>&copy; {year} Hindu Swad Private Limited. All rights reserved.</p>
+          <p>CIN: [COMPANY_CIN] &nbsp;|&nbsp; Bangalore, Karnataka, India</p>
         </div>
       </div>
     </footer>

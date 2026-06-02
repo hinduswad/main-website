@@ -3,161 +3,137 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Menu, X, LogOut } from "lucide-react";
-import { useState } from "react";
-import { signOut } from "next-auth/react";
+import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
-interface NavbarProps {
-  session?: any;
-}
+const navLinks = [
+  { name: "Home",    href: "/" },
+  { name: "About",   href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
 
-export default function Navbar({ session }: NavbarProps) {
+export default function Navbar() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
 
-  const baseLinks = [
-    { name: "Home", href: "/" },
-    { name: "Jobs", href: "/jobs" },
-    { name: "About Us", href: "/about" },
-    { name: "FAQs", href: "/faqs" },
-    { name: "Contact", href: "/contact" },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const links = session?.user
-    ? [...baseLinks, { name: "Dashboard", href: "/dashboard" }]
-    : baseLinks;
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
-          <Image
-            src="/images/logo.jpeg"
-            alt="HinduSwad Logo"
-            width={40}
-            height={40}
-            className="rounded-lg object-cover shadow-sm ring-1 ring-orange-500/20"
-          />
-          <span className="text-xl font-bold tracking-tight text-zinc-900">
-            Hindu<span className="text-orange-500">Swad</span>
-          </span>
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-400 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-xl shadow-sm shadow-zinc-900/5 border-b border-zinc-200/70"
+          : "bg-white/70 backdrop-blur-md border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-5 sm:px-8">
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2.5 group" aria-label="Hindu Swad Home">
+          <div className="relative w-8 h-8 rounded-xl overflow-hidden ring-1 ring-orange-500/20 group-hover:ring-orange-500/40 transition-all duration-300 flex-shrink-0">
+            <Image
+              src="/images/logo.jpeg"
+              alt="Hindu Swad"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-[1.05rem] font-extrabold tracking-tight text-zinc-900 font-display leading-tight">
+              Hindu<span className="text-orange-500">Swad</span>
+            </span>
+            <span className="text-[0.55rem] font-semibold text-orange-400/90 tracking-widest uppercase leading-none">
+              Taste with Trust
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex md:gap-8">
-          {links.map((link) => {
-            const isActive = pathname === link.href;
+        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                  isActive ? "text-orange-500" : "text-zinc-600"
+                className={`relative text-sm font-semibold transition-colors duration-200 group ${
+                  active ? "text-orange-500" : "text-zinc-600 hover:text-zinc-900"
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-0.5 rounded-full brand-gradient transition-all duration-300 ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right: Coming Soon badge */}
+        <div className="hidden md:block">
+          <span className="badge-coming">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse-soft" />
+            Coming Soon
+          </span>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen((o) => !o)}
+          className="md:hidden flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 text-zinc-600 hover:bg-zinc-50 transition-colors duration-200"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X size={17} /> : <Menu size={17} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`fixed inset-0 top-[4.25rem] bg-white z-40 md:hidden transition-all duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="px-5 pt-6 pb-10 space-y-1">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-4 py-3.5 rounded-xl text-base font-semibold transition-colors ${
+                  active
+                    ? "bg-orange-50 text-orange-600"
+                    : "text-zinc-700 hover:bg-zinc-50"
                 }`}
               >
                 {link.name}
               </Link>
             );
           })}
-        </nav>
 
-        {/* Action Button */}
-        <div className="hidden md:flex md:items-center gap-4">
-          {session?.user ? (
-            <>
-              <span className="text-xs text-zinc-500 font-medium">
-                +91 {session?.user?.phone}
-              </span>
-              <Button
-                onClick={() => signOut({ callbackUrl: "/" })}
-                variant="outline"
-                className="rounded-full px-4 border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-medium text-xs flex items-center gap-1.5"
-              >
-                <LogOut size={12} /> Sign Out
-              </Button>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/login"
-                className="text-xs font-semibold text-zinc-600 hover:text-orange-500 transition-colors"
-              >
-                Sign In
-              </Link>
-              <Button
-                asChild
-                className="bg-orange-500 text-white hover:bg-orange-600 rounded-full px-5 py-2 text-sm font-medium"
-              >
-                <Link href="/register">Apply Now</Link>
-              </Button>
-            </>
-          )}
+          <div className="pt-6 px-4">
+            <span className="badge-coming text-sm">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse-soft" />
+              Coming Soon
+            </span>
+          </div>
         </div>
-
-        {/* Mobile menu toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 hover:bg-zinc-50 md:hidden"
-          aria-label="Toggle Menu"
-        >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </div>
-
-      {/* Mobile nav overlay */}
-      {mobileMenuOpen && (
-        <div className="border-b border-zinc-200 bg-white px-4 py-4 md:hidden">
-          <nav className="flex flex-col gap-4">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-zinc-600 hover:text-orange-500"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <hr className="border-zinc-200" />
-            {session?.user ? (
-              <div className="flex flex-col gap-2">
-                <span className="text-xs text-zinc-500 font-medium px-1">
-                  Logged in: +91 {session?.user?.phone}
-                </span>
-                <Button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    signOut({ callbackUrl: "/" });
-                  }}
-                  variant="outline"
-                  className="rounded-full w-full justify-center"
-                >
-                  Sign Out
-                </Button>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-3">
-                <Link
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-center text-sm font-semibold text-zinc-600 hover:text-orange-500 py-1"
-                >
-                  Sign In
-                </Link>
-                <Button
-                  asChild
-                  className="bg-orange-500 text-white hover:bg-orange-600 w-full rounded-full"
-                >
-                  <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
-                    Apply Now
-                  </Link>
-                </Button>
-              </div>
-            )}
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
