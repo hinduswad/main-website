@@ -4,7 +4,7 @@ import { Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
   { label: "Home",            href: "/" },
-  { label: "Sample Menu",     href: "/menu" },
+  { label: "Menu",     href: "/menu" },
   { label: "About Us",        href: "/about" },
   { label: "Privacy Policy",  href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
@@ -40,7 +40,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-zinc-500 leading-relaxed max-w-xs">
-              India&apos;s next food discovery platform — connecting food lovers with great dining experiences. Launching soon.
+              India&apos;s next food delivery platform - connecting food lovers with great dining experiences. Launching soon.
             </p>
 
           </div>

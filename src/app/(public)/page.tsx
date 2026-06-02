@@ -3,15 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import IntersectionReveal from "@/components/ui/IntersectionReveal";
 import {
-  Search, Star, BookOpen, MessageCircle, Sparkles, MapPin,
+  Search, Star, BookOpen, Zap, Sparkles, MapPin,
   ArrowRight, Clock, CheckCircle2, Mail, ChevronRight,
-  Globe, Zap, Heart, Users,
+  Globe, Heart, Users,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hindu Swad — India's Next Food Discovery Platform | Coming Soon",
+  title: "Hindu Swad - India's Next Food Delivery & Discovery Platform | Coming Soon",
   description:
-    "Hindu Swad Private Limited is building India's next food discovery and restaurant exploration platform. Taste with Trust. Launching soon.",
+    "Hindu Swad Private Limited is building India's next food delivery and restaurant exploration platform. Taste with Trust. Launching soon.",
 };
 
 /* ─── Data ─────────────────────────────────── */
@@ -28,14 +28,14 @@ const features = [
     icon: BookOpen,
     title: "Full Menu Browsing",
     description:
-      "Explore complete menus with photos, descriptions, dietary tags, and pricing — before you even step out the door.",
+      "Explore complete menus with photos, descriptions, dietary tags, and pricing - before you even step out the door.",
     color: "bg-amber-50 text-amber-600",
   },
   {
     icon: Star,
     title: "Trusted Dining Reviews",
     description:
-      "Real reviews from verified diners. No fake ratings — only authentic feedback to help you make confident choices.",
+      "Real reviews from verified diners. No fake ratings - only authentic feedback to help you make confident choices.",
     color: "bg-yellow-50 text-yellow-600",
   },
   {
@@ -53,10 +53,10 @@ const features = [
     color: "bg-teal-50 text-teal-600",
   },
   {
-    icon: MessageCircle,
-    title: "Diner Community",
+    icon: Zap,
+    title: "Lightning Fast Delivery",
     description:
-      "Connect with fellow food lovers, share dining experiences, and build your trusted network of go-to restaurants.",
+      "Get your favorite meals delivered hot and fresh to your doorstep with our real-time GPS tracked delivery partners.",
     color: "bg-purple-50 text-purple-600",
   },
 ];
@@ -70,7 +70,7 @@ const benefits = [
   {
     icon: Star,
     title: "Trusted Reviews",
-    description: "Make informed choices based on verified, honest reviews from real diners — not bots.",
+    description: "Make informed choices based on verified, honest reviews from real diners - not bots.",
   },
   {
     icon: Zap,
@@ -80,7 +80,7 @@ const benefits = [
   {
     icon: Heart,
     title: "Built for India",
-    description: "Designed from the ground up for Indian food culture — regional cuisines, local gems, authentic flavours.",
+    description: "Designed from the ground up for Indian food culture - regional cuisines, local gems, authentic flavours.",
   },
 ];
 
@@ -109,7 +109,7 @@ const timeline = [
   {
     phase: "Phase 04",
     title: "Public Launch",
-    desc: "Hindu Swad goes live for all users. Taste with Trust — available nationwide.",
+    desc: "Hindu Swad goes live for all users. Taste with Trust - available nationwide.",
     status: "upcoming",
     progress: 0,
   },
@@ -137,7 +137,7 @@ export default function HomePage() {
             className="object-cover object-center opacity-30"
             priority
           />
-          {/* Gradient overlay — keeps text readable */}
+          {/* Gradient overlay - keeps text readable */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white" />
           <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-transparent to-white/30" />
         </div>
@@ -175,7 +175,7 @@ export default function HomePage() {
               style={{ animation: "fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards", opacity: 0 }}
             >
               Connecting food lovers with great dining experiences across India.
-              Taste with Trust — launching soon.
+              Taste with Trust - launching soon.
             </p>
 
             {/* CTA */}
@@ -229,7 +229,7 @@ export default function HomePage() {
                 <strong className="text-zinc-800">Hindu Swad Private Limited</strong> is a Bangalore-based food-tech company on a mission to transform the way India discovers and explores great food. We believe every city in India has extraordinary dining experiences waiting to be found.
               </p>
               <p className="text-base text-zinc-500 leading-relaxed mb-4">
-                Our platform will make restaurant discovery effortless, authentic, and deeply personalised — celebrating the rich diversity of Indian cuisine, from iconic street food stalls to fine dining destinations.
+                Our platform will make restaurant discovery effortless, authentic, and deeply personalised - celebrating the rich diversity of Indian cuisine, from iconic street food stalls to fine dining destinations.
               </p>
               <p className="text-base text-zinc-500 leading-relaxed">
                 We are currently in active development, building the technology and partnerships that will bring <em className="not-italic font-semibold text-zinc-700">&ldquo;Taste with Trust&rdquo;</em> to food lovers across the country.
@@ -253,7 +253,7 @@ export default function HomePage() {
                     {/* Vision */}
                     <div>
                       <span className="badge-soon mb-3 block w-fit" style={{ background: "hsl(16 85% 50% / 0.15)", borderColor: "hsl(16 85% 50% / 0.3)", color: "hsl(16 85% 65%)" }}>Our Vision</span>
-                      <h3 className="text-xl font-black text-white mb-2">To be India&apos;s most loved food discovery platform.</h3>
+                      <h3 className="text-xl font-black text-white mb-2">To be India&apos;s most loved food delivery platform.</h3>
                       <p className="text-sm text-zinc-400 leading-relaxed">
                         A platform where every Indian can discover great food, every restaurant gets discovered, and every dining experience is an adventure.
                       </p>
@@ -263,7 +263,7 @@ export default function HomePage() {
                       <span className="badge-soon mb-3 block w-fit" style={{ background: "hsl(16 85% 50% / 0.15)", borderColor: "hsl(16 85% 50% / 0.3)", color: "hsl(16 85% 65%)" }}>Our Mission</span>
                       <h3 className="text-xl font-black text-white mb-2">Connecting food lovers with authentic experiences.</h3>
                       <p className="text-sm text-zinc-400 leading-relaxed">
-                        We make finding great food simple, trustworthy, and joyful — celebrating India&apos;s rich and diverse culinary culture.
+                        We make finding great food simple, trustworthy, and joyful - celebrating India&apos;s rich and diverse culinary culture.
                       </p>
                     </div>
 
@@ -364,7 +364,7 @@ export default function HomePage() {
                 Our launch roadmap
               </h2>
               <p className="text-sm text-zinc-400">
-                We&apos;re building methodically and transparently — here&apos;s where we are.
+                We&apos;re building methodically and transparently - here&apos;s where we are.
               </p>
             </div>
           </IntersectionReveal>
@@ -550,7 +550,7 @@ export default function HomePage() {
             Great food deserves to be found. We&apos;re building the platform that will make that possible for every food lover in India.
           </p>
           <a href="#notify" className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors duration-200 text-sm shadow-xl">
-            <Clock size={15} /> Notify Me — It&apos;s Free
+            <Clock size={15} /> Notify Me - It&apos;s Free
           </a>
         </div>
       </section>

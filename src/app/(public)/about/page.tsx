@@ -4,9 +4,9 @@ import { Target, Eye, Heart, Leaf, Zap, Globe, Award, Users, Store, Bike, Shoppi
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Us — Hindu Swad Private Limited",
+  title: "About Us - Hindu Swad Private Limited",
   description:
-    "Learn about Hindu Swad Private Limited — our company identity, mission, the three-pillar ecosystem we serve (Customers, Restaurant Partners, Delivery Fleet), and our operational footprint across India.",
+    "Learn about Hindu Swad Private Limited - our company identity, mission, the three-pillar ecosystem we serve (Customers, Restaurant Partners, Delivery Fleet), and our operational footprint across India.",
 };
 
 /* ─── Data ─────────────────────────────────── */
@@ -17,7 +17,7 @@ const pillars = [
     title: "Customers",
     headline: "For food lovers everywhere.",
     description:
-      "We serve end consumers seeking a premium, trustworthy, and effortless food discovery and ordering experience. From discovering new restaurants to tracking deliveries in real time, the Hindu Swad app is built to delight at every touchpoint — offering personalised recommendations, verified reviews, transparent pricing, and a seamless checkout flow.",
+      "We serve end consumers seeking a premium, trustworthy, and effortless food discovery and ordering experience. From discovering new restaurants to tracking deliveries in real time, the Hindu Swad app is built to delight at every touchpoint - offering personalised recommendations, verified reviews, transparent pricing, and a seamless checkout flow.",
     points: [
       "Personalised restaurant & cuisine discovery",
       "Verified, tamper-proof diner reviews",
@@ -33,7 +33,7 @@ const pillars = [
     title: "Restaurant Partners",
     headline: "Empowering India's restaurants to grow.",
     description:
-      "We serve restaurant businesses — from small neighbourhood eateries to established chains — by providing them with a powerful digital storefront, a massive customer acquisition channel, and intelligent operational tools. Our partner dashboard gives restaurants real-time order management, revenue analytics, menu control, and promotional tooling.",
+      "We serve restaurant businesses - from small neighbourhood eateries to established chains - by providing them with a powerful digital storefront, a massive customer acquisition channel, and intelligent operational tools. Our partner dashboard gives restaurants real-time order management, revenue analytics, menu control, and promotional tooling.",
     points: [
       "Digital storefront with photo menus and hours",
       "Real-time order management dashboard",
@@ -49,7 +49,7 @@ const pillars = [
     title: "Delivery Fleet",
     headline: "Building dignified livelihoods for delivery professionals.",
     description:
-      "Our delivery partner network forms the backbone of our last-mile logistics. Hindu Swad treats delivery executives as valued professional partners — not just contractors. We provide earnings transparency, route optimisation, free insurance coverage, and a fair incentive structure that rewards reliable, high-quality performance.",
+      "Our delivery partner network forms the backbone of our last-mile logistics. Hindu Swad treats delivery executives as valued professional partners - not just contractors. We provide earnings transparency, route optimisation, free insurance coverage, and a fair incentive structure that rewards reliable, high-quality performance.",
     points: [
       "Competitive per-delivery earnings + surge bonuses",
       "AI-optimised route assignments",
@@ -84,7 +84,7 @@ const values = [
   {
     icon: Zap,
     title: "Speed & Reliability",
-    description: "Speed isn't just a feature — it's the foundation. From app load time to delivery ETA, every millisecond and every minute matters to us.",
+    description: "Speed isn't just a feature - it's the foundation. From app load time to delivery ETA, every millisecond and every minute matters to us.",
     color: "bg-amber-50 text-amber-600",
   },
   {
@@ -96,7 +96,7 @@ const values = [
   {
     icon: Users,
     title: "Community Impact",
-    description: "We create real economic opportunity — for restaurant owners, delivery professionals, and local food businesses that deserve a bigger stage.",
+    description: "We create real economic opportunity - for restaurant owners, delivery professionals, and local food businesses that deserve a bigger stage.",
     color: "bg-blue-50 text-blue-600",
   },
 ];
@@ -123,7 +123,7 @@ export default function AboutPage() {
           <IntersectionReveal>
             <span className="badge-soon mb-5 block w-fit">About Us</span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 leading-[1.04] max-w-4xl mb-6">
-              Connecting India to great food — one{" "}
+              Connecting India to great food - one{" "}
               <span className="brand-gradient-text">discovery at a time.</span>
             </h1>
             <p className="text-lg text-zinc-500 leading-relaxed max-w-2xl">
@@ -149,12 +149,12 @@ export default function AboutPage() {
                   <p className="text-[0.6rem] font-black text-orange-400 uppercase tracking-[0.15em] mb-2">Mission Statement</p>
                   <h2 className="text-2xl sm:text-3xl font-black text-white mb-5 leading-tight">Our Mission</h2>
                   <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
-                    To build India&apos;s most trusted food discovery and delivery ecosystem — a platform that empowers consumers to effortlessly find and experience extraordinary food, enables restaurants of every size to grow their business through technology, and creates fair, dignified, and well-compensated livelihoods for India&apos;s delivery workforce.
+                    To build India&apos;s most trusted food discovery and delivery ecosystem - a platform that empowers consumers to effortlessly find and experience extraordinary food, enables restaurants of every size to grow their business through technology, and creates fair, dignified, and well-compensated livelihoods for India&apos;s delivery workforce.
                   </p>
                   <div className="mt-7 pt-7 border-t border-white/8">
                     <p className="text-[0.6rem] font-black text-orange-400 uppercase tracking-[0.15em] mb-2">Core Value Proposition</p>
                     <p className="text-zinc-400 text-sm leading-relaxed">
-                      We connect food lovers with the best restaurants in their city — delivering meals that are <em className="not-italic text-white font-semibold">fresh, fast, and reliable</em> — while building a technology layer that transforms how India&apos;s restaurant industry operates and grows.
+                      We connect food lovers with the best restaurants in their city - delivering meals that are <em className="not-italic text-white font-semibold">fresh, fast, and reliable</em> - while building a technology layer that transforms how India&apos;s restaurant industry operates and grows.
                     </p>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
                   <p className="text-[0.6rem] font-black text-orange-500 uppercase tracking-[0.15em] mb-2">Vision Statement</p>
                   <h2 className="text-2xl sm:text-3xl font-black text-zinc-950 mb-5 leading-tight">Our Vision</h2>
                   <p className="text-zinc-500 leading-relaxed text-sm">
-                    To be the definitive infrastructure layer for India&apos;s food economy — a platform where every great restaurant is discoverable, every delivery is reliable, every diner is satisfied, and every stakeholder in the food supply chain prospers.
+                    To be the definitive infrastructure layer for India&apos;s food economy - a platform where every great restaurant is discoverable, every delivery is reliable, every diner is satisfied, and every stakeholder in the food supply chain prospers.
                   </p>
                   <div className="mt-7 pt-7 border-t border-zinc-200">
                     <p className="text-xs font-bold text-zinc-800 mb-1">Tagline</p>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 We serve three distinct pillars
               </h2>
               <p className="text-base text-zinc-500 leading-relaxed">
-                Hindu Swad is not a single-sided platform. Our ecosystem is built to serve three interconnected groups — and the value we create for each amplifies the value for all.
+                Hindu Swad is not a single-sided platform. Our ecosystem is built to serve three interconnected groups - and the value we create for each amplifies the value for all.
               </p>
             </div>
           </IntersectionReveal>
@@ -256,13 +256,13 @@ export default function AboutPage() {
             </div>
             <div className="space-y-5 text-[0.93rem] text-zinc-600 leading-[1.85]">
               <p>
-                India is home to one of the world&apos;s most extraordinary food cultures. From the slow-cooked biryanis of Hyderabad and the coconut-rich curries of Kerala to the robust thalis of Punjab and the delicate coastal seafood of Mangalore — every region, every city, every street tells a culinary story unlike any other.
+                India is home to one of the world&apos;s most extraordinary food cultures. From the slow-cooked biryanis of Hyderabad and the coconut-rich curries of Kerala to the robust thalis of Punjab and the delicate coastal seafood of Mangalore - every region, every city, every street tells a culinary story unlike any other.
               </p>
               <p>
                 Yet for all this abundance, discovering great food remains harder than it should be. Outstanding local restaurants remain invisible outside their neighbourhoods. Hidden gems go unnoticed. Diners make uninformed choices based on unreliable, outdated, or manipulated information. Restaurant owners lack the digital tools to grow. Delivery professionals lack fair compensation structures and basic protections.
               </p>
               <p>
-                We founded <strong className="text-zinc-900">Hindu Swad Private Limited</strong> in Bangalore with the conviction that India&apos;s food economy deserves modern, trustworthy digital infrastructure — not an afterthought, but a purpose-built system that works for everyone in the ecosystem.
+                We founded <strong className="text-zinc-900">Hindu Swad Private Limited</strong> in Bangalore with the conviction that India&apos;s food economy deserves modern, trustworthy digital infrastructure - not an afterthought, but a purpose-built system that works for everyone in the ecosystem.
               </p>
               <p>
                 <strong className="text-zinc-900">&ldquo;Taste with Trust&rdquo;</strong> is not a marketing slogan. It is our operating principle. Every feature we build, every policy we enforce, every partner we onboard is evaluated against one standard: does it earn and keep the trust of the people we serve?
@@ -305,7 +305,7 @@ export default function AboutPage() {
           <IntersectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-3xl font-black text-white mb-4">Operational Footprint</h2>
-              <p className="text-sm text-zinc-400">Our initial launch covers Karnataka, India — with a phased expansion roadmap across South India and beyond.</p>
+              <p className="text-sm text-zinc-400">Our initial launch covers Karnataka, India - with a phased expansion roadmap across South India and beyond.</p>
             </div>
           </IntersectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -314,7 +314,7 @@ export default function AboutPage() {
               <div className="bg-white/4 border border-white/8 rounded-2xl p-7">
                 <div className="flex items-center gap-2 mb-5">
                   <MapPin size={16} className="text-orange-400" />
-                  <h3 className="text-sm font-bold text-white uppercase tracking-wider">Launch Cities — Karnataka</h3>
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider">Launch Cities - Karnataka</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {["Bangalore","Mysore","Hubli","Dharwad","Mangalore","Davangere","Bellary","Shimoga","Tumkur","Bidar","Hassan","Udupi"].map((city) => (
@@ -359,7 +359,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-4">Ready to connect with us?</h2>
           <p className="text-orange-100 text-sm mb-8 max-w-lg mx-auto">
-            Whether you&apos;re a potential restaurant partner, a future delivery professional, or simply excited about our platform — reach out. We&apos;d love to hear from you.
+            Whether you&apos;re a potential restaurant partner, a future delivery professional, or simply excited about our platform - reach out. We&apos;d love to hear from you.
           </p>
           <a href="mailto:support@hinduswad.com" className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors text-sm shadow-xl">
             Get in Touch <ArrowRight size={14} />

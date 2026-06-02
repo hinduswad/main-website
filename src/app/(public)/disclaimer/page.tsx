@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AlertTriangle, ShieldAlert, Store, Stethoscope, Scale } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — Hindu Swad Private Limited",
+  title: "Disclaimer - Hindu Swad Private Limited",
   description:
     "Legal and Liability Disclaimer for Hindu Swad. Covers platform role, food and ingredient liability, allergy and health disclaimers, and restaurant responsibilities.",
 };

@@ -22,11 +22,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hinduswad.com"),
   title: {
-    default: "Hindu Swad — Taste with Trust | India's Next Food Discovery Platform",
+    default: "Hindu Swad - Taste with Trust | India's Next Food Discovery Platform",
     template: "%s | Hindu Swad",
   },
   description:
-    "Hindu Swad Private Limited — India's upcoming food discovery and restaurant exploration platform. Connecting food lovers with great dining experiences. Launching soon.",
+    "Hindu Swad Private Limited - India's upcoming food discovery and restaurant exploration platform. Connecting food lovers with great dining experiences. Launching soon.",
   keywords: [
     "Hindu Swad", "hinduswad", "food discovery India", "restaurant discovery",
     "food tech India", "Indian food platform", "coming soon food app",
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://hinduswad.com",
     siteName: "Hindu Swad",
-    title: "Hindu Swad — Taste with Trust",
+    title: "Hindu Swad - Taste with Trust",
     description: "India's next food discovery platform. Connecting food lovers with great dining experiences. Launching soon.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Hindu Swad — Taste with Trust" }],
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Hindu Swad - Taste with Trust" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hindu Swad — Taste with Trust",
+    title: "Hindu Swad - Taste with Trust",
     description: "India's next food discovery platform. Launching soon.",
     site: "@hinduswad",
     images: ["/images/og-image.jpg"],
