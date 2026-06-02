@@ -254,6 +254,9 @@ export default function PrivacyPolicyPage() {
                   <br /><strong>Grievance Officer:</strong> support@hinduswad.com
                   <br /><strong>Address:</strong> Hindu Swad Pvt. Ltd., Karnataka Regional Office, Bangalore, Karnataka, India
                 </p>
+                <p className="mt-4 text-sm text-zinc-600 bg-zinc-50 p-4 rounded-xl border border-zinc-200">
+                  <strong>Grievance Redressal Protocol:</strong> We are committed to acknowledging all grievances within <strong>24 hours</strong> of receipt and resolving them within <strong>30 days</strong>, as mandated by applicable law.
+                </p>
               </div>
 
             </div>

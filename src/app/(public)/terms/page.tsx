@@ -168,7 +168,7 @@ export default function TermsPage() {
                 <h2>9. Prohibited Activities &amp; Account Termination</h2>
                 <p>You agree NOT to engage in any of the following activities:</p>
                 <ul>
-                  <li><strong>Fraud & Abuse:</strong> Placing fake or prank orders, exploiting promotional codes, or initiating fraudulent chargebacks.</li>
+                  <li><strong>Fraud & Abuse:</strong> Placing fake or prank orders, submitting fake or unverified reviews/ratings, exploiting promotional codes, or initiating fraudulent chargebacks.</li>
                   <li><strong>Harassment:</strong> Using abusive language, threatening, or harassing Merchants, Delivery Executives, or Hindu Swad support staff.</li>
                   <li><strong>Platform Misuse:</strong> Attempting to reverse engineer, hack, or disrupt the Platform's functionality.</li>
                   <li><strong>Illegal Activity:</strong> Using the Platform for any unlawful purpose.</li>
