@@ -10,20 +10,14 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.14.0",
     "@radix-ui/react-slot": "^1.2.4",
-    "@supabase/supabase-js": "^2.43.4",
-    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.378.0",
     "next": "15.1.0",
-    "next-auth": "5.0.0-beta.25",
-    "razorpay": "^2.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "resend": "^3.2.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -38,9 +32,7 @@
     "eslint": "^9.4.0",
     "eslint-config-next": "15.1.0",
     "postcss": "^8.4.38",
-    "prisma": "^5.14.0",
     "tailwindcss": "^4",
-    "tsx": "^4.22.3",
     "typescript": "^5.4.5"
   },
   "prisma": {
