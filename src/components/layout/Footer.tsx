@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
   { label: "Home",            href: "/" },
@@ -11,12 +11,6 @@ const footerLinks = [
   { label: "Disclaimer",      href: "/disclaimer" },
 ];
 
-const socials = [
-  { name: "Instagram", href: "#", icon: Instagram },
-  { name: "Twitter",   href: "#", icon: Twitter },
-  { name: "LinkedIn",  href: "#", icon: Linkedin },
-  { name: "Facebook",  href: "#", icon: Facebook },
-];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -48,20 +42,6 @@ export default function Footer() {
               India&apos;s next food discovery platform — connecting food lovers with great dining experiences. Launching soon.
             </p>
 
-            <div className="flex gap-2.5">
-              {socials.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Hindu Swad on ${s.name}`}
-                  className="w-8 h-8 rounded-lg bg-white/5 hover:bg-orange-500 flex items-center justify-center transition-all duration-300 group"
-                >
-                  <s.icon size={14} className="text-zinc-400 group-hover:text-white transition-colors duration-300" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Navigation column */}
