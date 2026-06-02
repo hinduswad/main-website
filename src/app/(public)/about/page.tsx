@@ -108,36 +108,6 @@ const operationalFacts = [
   { value: "₹5L", label: "Accident coverage", sub: "Per delivery partner" },
 ];
 
-const team = [
-  {
-    name: "[Founder Name]",
-    title: "Founder & Chief Executive Officer",
-    bio: "Visionary entrepreneur with deep conviction in the potential of India's food economy and the technology to transform it.",
-    avatar: "F",
-    bg: "bg-orange-500",
-  },
-  {
-    name: "[Co-Founder Name]",
-    title: "Co-Founder & Chief Operations Officer",
-    bio: "Operations leader specialising in last-mile logistics, supply chain strategy, and building scalable ground-level operations.",
-    avatar: "C",
-    bg: "bg-blue-600",
-  },
-  {
-    name: "[Tech Lead Name]",
-    title: "Chief Technology Officer",
-    bio: "Full-stack technologist with deep experience building consumer platforms for India's mobile-first digital economy.",
-    avatar: "T",
-    bg: "bg-green-600",
-  },
-  {
-    name: "[Growth Lead Name]",
-    title: "Head of Growth & Partnerships",
-    bio: "Growth strategist driving restaurant onboarding, city expansion, and commercial partnerships across Karnataka and beyond.",
-    avatar: "G",
-    bg: "bg-purple-600",
-  },
-];
 
 /* ─── Page ─────────────────────────────────── */
 
@@ -328,32 +298,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Leadership ── */}
-      <section className="section-pad warm-bg border-y border-zinc-100">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <IntersectionReveal>
-            <div className="text-center max-w-xl mx-auto mb-12">
-              <span className="badge-soon mb-4 block mx-auto w-fit">Leadership Team</span>
-              <h2 className="text-3xl font-black tracking-tight text-zinc-950 mb-3">The people behind Hindu Swad</h2>
-              <p className="text-sm text-zinc-500">Experienced operators, technologists, and strategists united by a shared passion for India&apos;s food ecosystem.</p>
-            </div>
-          </IntersectionReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((m, i) => (
-              <IntersectionReveal key={m.name} delay={i * 80}>
-                <div className="card-base p-7 text-center hover-lift-premium">
-                  <div className={`w-14 h-14 ${m.bg} rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg`}>
-                    <span className="text-xl font-black text-white">{m.avatar}</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-zinc-900 mb-1">{m.name}</h3>
-                  <p className="text-xs text-orange-500 font-semibold mb-3 leading-tight">{m.title}</p>
-                  <p className="text-xs text-zinc-500 leading-relaxed">{m.bio}</p>
-                </div>
-              </IntersectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Operational Scope ── */}
       <section className="section-pad bg-zinc-950">

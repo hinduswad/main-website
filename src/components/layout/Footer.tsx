@@ -87,15 +87,15 @@ export default function Footer() {
             <h3 className="text-[0.65rem] font-bold text-zinc-400 uppercase tracking-widest mb-4">Contact</h3>
             <div className="space-y-3">
               <a
-                href="mailto:[SUPPORT_EMAIL]"
+                href="mailto:support@hinduswad.com"
                 className="flex items-center gap-2 text-sm text-zinc-500 hover:text-orange-400 transition-colors duration-200"
               >
                 <Mail size={13} className="text-orange-500/60 flex-shrink-0" />
-                [SUPPORT_EMAIL]
+                support@hinduswad.com
               </a>
               <div className="flex items-start gap-2 text-sm text-zinc-500">
                 <MapPin size={13} className="text-orange-500/60 flex-shrink-0 mt-0.5" />
-                <span>[REGISTERED_ADDRESS], Bangalore, Karnataka, India</span>
+                <span>Hindu Swad Pvt. Ltd., Karnataka Regional Office, Bangalore, Karnataka, India</span>
               </div>
             </div>
 
@@ -109,7 +109,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-600">
           <p>&copy; {year} Hindu Swad Private Limited. All rights reserved.</p>
-          <p>CIN: [COMPANY_CIN] &nbsp;|&nbsp; Bangalore, Karnataka, India</p>
+          <div className="flex flex-col sm:items-end gap-1">
+            <p>CIN: U63120KA2025PTC206410 &nbsp;|&nbsp; Bangalore, Karnataka, India</p>
+            <p>Developed by <a href="https://heloavy.com" target="_blank" rel="noreferrer" className="hover:text-orange-400 transition-colors">HELOAVY PRIVATE LIMITED (heloavy.com)</a></p>
+          </div>
         </div>
       </div>
     </footer>
